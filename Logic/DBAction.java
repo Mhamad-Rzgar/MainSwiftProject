@@ -137,7 +137,6 @@ public class DBAction {
         stmt.setString(4, itemsModel.getCatigory());
         stmt.setString(5, itemsModel.getBrand());
         stmt.setString(6, itemsModel.getType());
-
         stmt.setString(7, itemsModel.getQuantity());
         stmt.setString(8, itemsModel.getExpireDate());
         stmt.setString(9, itemsModel.getBuyingPrice());
