@@ -1,4 +1,4 @@
-package ProfilePackage;
+package jFrames;
 
 import Logic.DBAction;
 import Models.LoginModel;
@@ -93,6 +93,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // ئەم بەتنە کاری لۆگین جێبەجێ ئەکات
+    // login - Login btn
     private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {
 
         try {
@@ -123,6 +124,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // ڕۆشتن بۆ پەیجی خۆتۆمارکردن ئەگەر دەسمان با بە بەتنی خۆتۆمارکردن
+    // login - create new account btn
     private void RegisterLblMouseClicked(java.awt.event.MouseEvent evt) {
         new Register().show();
         this.dispose();

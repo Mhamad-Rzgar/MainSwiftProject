@@ -1,7 +1,7 @@
 
 // slaw
 
-package ProfilePackage;
+package jFrames;
 
 import Logic.DBAction;
 import Models.RegisterModel;
@@ -17,7 +17,6 @@ public class Register extends javax.swing.JFrame {
 
     public Register() {
         initComponents();
-
         passErrorLbl.setText("");
         male.setActionCommand("male");
         female.setActionCommand("female");
@@ -247,6 +246,7 @@ public class Register extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // register - clear btn
     private void ClearBtnActionPerformed(java.awt.event.ActionEvent evt) {
         fnameTxt.setText(null);
         userTxt.setText(null);
@@ -258,6 +258,7 @@ public class Register extends javax.swing.JFrame {
     }
 
     // کرداری سەرەکی خۆتۆمارکردن
+    // register - save btn
     private void SaveBtnActionPerformed(java.awt.event.ActionEvent evt) {
 
         // وەرگرتنی نرخەکانی بەکارهێنەر داخوڵی کردووە
@@ -305,6 +306,7 @@ public class Register extends javax.swing.JFrame {
     }
 
     // داواکردنی داخستنەوەی بەرنامەکە
+    // register - exit btn
     private void ExitBtnActionPerformed(java.awt.event.ActionEvent evt) {
         int p = JOptionPane.showConfirmDialog(this, "Do you want to exit this app?", "Exit", JOptionPane.YES_NO_OPTION);
 
@@ -321,6 +323,7 @@ public class Register extends javax.swing.JFrame {
 
     // keyPressed ناسراوە بە textField ئەم کردارە لەسەر
     // keyPressed ئەتوانی بەکاربهێنیت لەڕێگەی بەکارهێنانی
+    // register - password onChange
     private void passTxtKeyPressed(java.awt.event.KeyEvent evt) {
         int passLen = passTxt.getText().length();
 
@@ -332,12 +335,14 @@ public class Register extends javax.swing.JFrame {
     }
 
     // کرداری بەتنی ڕۆشتنە بۆ لۆگین
+    // register - login to your account onClick
     private void RegisterLblMouseClicked(java.awt.event.MouseEvent evt) {
         new Login().show();
         this.dispose();
     }
 
     // ئەم کردارەی خوارەوەیە کە مەینی هەموو ئاپەکەیە و بەرنامەکە لێرەوە ڕەن ئەبێت
+    // MAIN
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

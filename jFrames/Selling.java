@@ -1,4 +1,4 @@
-package ProfilePackage;
+package jFrames;
 
 import Logic.DBAction;
 import Models.SellingModel;
@@ -14,6 +14,7 @@ public class Selling extends javax.swing.JFrame {
     double price = 0.0;
     DefaultTableModel model;
 
+    // Selling - contractor
     public Selling() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -311,6 +312,7 @@ public class Selling extends javax.swing.JFrame {
     }
 
     // ئەمە کرداری ئینتەرکردن لەسەر باڕکۆد جێبەجێ دەکات
+    // Selling - barcode enter
     private void barcodeTxtActionPerformed(java.awt.event.ActionEvent evt) {
 
         try {
@@ -335,10 +337,28 @@ public class Selling extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
+    }
 
+    // ئەم کردارە هەمان کرداری سێرچە بە باڕکۆ و هەمان کۆدە
+    // تەنها جیاوازی ئەوەیە ئەم بە بەتنە
+    // Selling - search btn
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
+        try {
+            ResultSet product = DBAction.getProductByBarcode(barcodeTxt.getText());
+            while (product.next()) {
+                selectedProductId = product.getInt(1);
+                name = product.getString(2);
+                price = product.getDouble(3);
+                nameTxt.setText(name);
+                priceTxt.setText(Double.toString(price));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }
 
     // داخڵکردنی ئەو بەرهەمەی ئەتەوێ بیفرۆشی بۆ ناو جەی تەیبڵەکە
+    // Selling - Add
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
 
         // ئەگەر هیچ ئای دیەک دیاری نەکرابوو کەواتە هێستا سێرچمان نەکردووە بەپێی باڕکۆد
@@ -366,6 +386,7 @@ public class Selling extends javax.swing.JFrame {
     }
 
     // ئەبدەیت کردنی ئەو بەرهەمەی ئەتەوێ بیفرۆشی
+    // Selling - update btn
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         // سەرەتا ئەو بەرهەمە لە جەی تەیبڵەکە ئەسڕینەوە بەپێی ئەوەی ژمارەی رۆوەکەی
         // ئەزانین
@@ -391,12 +412,24 @@ public class Selling extends javax.swing.JFrame {
     }
 
     // ئەمە کرداری سڕینەوەی ئەو ریزەیە کە بەکارهێنەر دیاری کردووە
+    // Selling - delete btn
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
         model.removeRow(jTable1.getSelectedRow());
     }
 
+    // بەتاڵکردنەوەی زانیارییەکانی ناو تێکست فیڵدەکان
+    // Selling - reset btn
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
+        barcodeTxt.setText(null);
+        quantityTxt.setValue(0);
+        nameTxt.setText(null);
+        priceTxt.setText(null);
+        discountTxt.setValue(0);
+    }
+
     // کرداری پڕکردنەوەی تێکست فێڵدەکان کاتێک یەکێک لە ڕیزەکانی جەی تەیبڵەکە دیاری
     // ئەکرێت
+    // Selling - jtable click
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {
         if (evt.getClickCount() == 1) {
             int row = jTable1.getSelectedRow();
@@ -416,6 +449,7 @@ public class Selling extends javax.swing.JFrame {
 
     // ناردنی هەموو ریزەکانی جەی تەیبڵەکە بۆ دەیتابەیس و فرۆشتن
     // واتە ئەمە کردارە سەرەکییەکەیە کە فرۆشتنە
+    // Selling - save btn
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
 
         try {
@@ -434,49 +468,21 @@ public class Selling extends javax.swing.JFrame {
         }
     }
 
-    // بەتاڵکردنەوەی زانیارییەکانی ناو تێکست فیڵدەکان
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
-        barcodeTxt.setText(null);
-        quantityTxt.setValue(0);
-        nameTxt.setText(null);
-        priceTxt.setText(null);
-        discountTxt.setValue(0);
-    }
-
-    // ئەم کردارە هەمان کرداری سێرچە بە باڕکۆ و هەمان کۆدە
-    // تەنها جیاوازی ئەوەیە ئەم بە بەتنە
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
-        try {
-            ResultSet product = DBAction.getProductByBarcode(barcodeTxt.getText());
-            while (product.next()) {
-
-                selectedProductId = product.getInt(1);
-                name = product.getString(2);
-                price = product.getDouble(3);
-
-                System.out.println(name + price);
-                nameTxt.setText(name);
-                priceTxt.setText(Double.toString(price));
-
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-    }
-
-    // بەتنی باک و گەڕانەوە بۆ هۆم
-    private void BackLblMouseClicked(java.awt.event.MouseEvent evt) {
-        new Home().show();
-        this.dispose();
-    }
-
     // ئەمە پرنتکردنی دەیتاکانە بۆ ناق فایلێک لە سیستمەکە
+    // Selling - print btn
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
         try {
             DBAction.printSelling(model);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
+    }
+
+    // بەتنی باک و گەڕانەوە بۆ هۆم
+    // Selling - back btn
+    private void BackLblMouseClicked(java.awt.event.MouseEvent evt) {
+        new Home().show();
+        this.dispose();
     }
 
     // پرنتی مەکە

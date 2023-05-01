@@ -1,9 +1,10 @@
-package ProfilePackage;
+package jFrames;
 
 import javax.swing.JOptionPane;
 
 public class Home extends javax.swing.JFrame {
 
+    // constrictor
     public Home() {
         initComponents();
     }
@@ -95,6 +96,7 @@ public class Home extends javax.swing.JFrame {
 
     // ئەم کردارە بۆ لۆگاوتکردنە و چوونە دەرەوەیە و ڕۆشتنە بۆ لۆگین دوای ئەوەی
     // لۆگینمان کرد
+    // logout btn
     private void LogoutLblMouseClicked(java.awt.event.MouseEvent evt) {
         int p = JOptionPane.showConfirmDialog(this, "Do you want to Logout?", "Logging out", JOptionPane.YES_NO_OPTION);
 
@@ -106,21 +108,25 @@ public class Home extends javax.swing.JFrame {
     }
 
     // ئەم چوار مێثۆدەی خوارەوە بۆ چوونە بۆ پەیجەکانی تر
+    // products btn
     private void itemsActionPerformed(java.awt.event.ActionEvent evt) {
         new Items().setVisible(true);
         this.dispose();
     }
 
+    // Home - image onClick
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {
         new Items().setVisible(true);
         this.dispose();
     }
 
+    // Home - create new account onClick
     private void RegisterLblMouseClicked(java.awt.event.MouseEvent evt) {
         new Register().show();
         this.dispose();
     }
 
+    // Home - selling btn
     private void items1ActionPerformed(java.awt.event.ActionEvent evt) {
         Selling selling = new Selling();
         selling.setVisible(true);

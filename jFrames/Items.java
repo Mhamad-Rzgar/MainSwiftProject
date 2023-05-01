@@ -1,4 +1,4 @@
-package ProfilePackage;
+package jFrames;
 
 import Logic.DBAction;
 import Models.ItemsModel;
@@ -92,6 +92,7 @@ public class Items extends javax.swing.JFrame {
     }
 
     // کۆنستراکتەری ئایتم
+    // constractor
     public Items() {
         initComponents();
         // بۆ ئەوەی لەگەڵ کردنەوەی پەیجی ئایتم هەموو زانیارییەکان بێنەوە و بخرێنە ناو
@@ -384,11 +385,13 @@ public class Items extends javax.swing.JFrame {
     }
 
     // پاککردنەوەی جەی تەیبڵەکە و فیڵدەکان، فرمانی دوگمەی ریسێتە
+    // items - clear btn
     private void ClearBtnActionPerformed(java.awt.event.ActionEvent evt) {
         clearTable();
     }
 
     // جێبەخێکردنی فرمانی زیاکردنی بەرهەمێک بۆ ناو دەیتابەیس
+    // items - Add btn
     private void SaveBtnActionPerformed(java.awt.event.ActionEvent evt) {
 
         try {
@@ -418,6 +421,7 @@ public class Items extends javax.swing.JFrame {
     }
 
     // کردارەکانی بەتنی باکە، کە ئەگەڕێتەوە بۆ سکرینی هۆم
+    // items - back btn
     private void BackLblMouseClicked(java.awt.event.MouseEvent evt) {
         new Home().show();
         this.dispose();
@@ -425,6 +429,7 @@ public class Items extends javax.swing.JFrame {
 
     // کلیک لەهەر ریزێکی جەی تەیبڵەکە بکەین ئەم کردارەی خوارەوە جێبەجێ ئەبێت بۆ
     // ناردنی نرخەکانی ناو ئەو ریزە بۆ تێکست فیڵدەکانی سەرەوە
+    // items - jTable onClick
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {
 
         // ئەم مەرجە بۆ ئەوەیە کە بزانین ریزێک دیاری کراوە یاخود نا
@@ -465,6 +470,7 @@ public class Items extends javax.swing.JFrame {
     }
 
     // ئەمە کردارەکانی ناو بەتنی ئەبدەیتە
+    // items - update btn
     private void SaveBtn1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_SaveBtn1ActionPerformed
 
         // لێرە لەڕێگەی ئای دی دیاریکراوەوە وەک سەرەوە ئاماژەم پێیاوە، چێکی ئەوە ئەکەین
@@ -505,6 +511,7 @@ public class Items extends javax.swing.JFrame {
     }
 
     // ئەمە کردارەکانی سڕینەوەی بەرهەمێکی دیاری کراوی تیایە.
+    // items - delete btn
     private void SaveBtn2ActionPerformed(java.awt.event.ActionEvent evt) {
 
         // لێرە لەڕێگەی ئای دی دیاریکراوەوە وەک سەرەوە ئاماژەم پێیاوە، چێکی ئەوە ئەکەین
